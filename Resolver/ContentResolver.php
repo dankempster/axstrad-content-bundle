@@ -1,7 +1,6 @@
 <?php
 namespace Axstrad\Bundle\ContentBundle\Resolver;
 
-use Axstrad\Common\Util\Debug;
 use Axstrad\Bundle\ContentBundle\Exception\InvalidContentReferenceException;
 use Axstrad\Bundle\ContentBundle\Model\Content;
 use Axstrad\Bundle\ContentBundle\Repository\ContentRepository;

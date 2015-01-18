@@ -70,7 +70,7 @@ class Extension extends Twig_Extension
         return $this->resolver
             ->resolveFromContext($context, $content)
             ->getContent()
-            ->map(function($content) use ($renderer) {
+            ->map(function($content) {
                 return $this->renderer->render($content);
             })
             ->getOrElse(null)
@@ -84,7 +84,7 @@ class Extension extends Twig_Extension
         return $this->resolver
             ->resolveFromContext($context, $content)
             ->getContent()
-            ->map(function($content) use ($renderer) {
+            ->map(function($content) {
                 return $this->renderer->renderHeading($content);
             })
             ->getOrElse(null)
@@ -98,7 +98,7 @@ class Extension extends Twig_Extension
         return $this->resolver
             ->resolveFromContext($context, $content)
             ->getContent()
-            ->map(function($content) use ($renderer) {
+            ->map(function($content) {
                 return $this->renderer->renderCopy($content);
             })
             ->getOrElse(null)
