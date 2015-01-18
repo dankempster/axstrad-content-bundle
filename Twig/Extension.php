@@ -34,7 +34,7 @@ class Extension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction(
+            new Twig_SimpleFunction(
                 'axstrad_content',
                 array($this, 'axstradContent'),
                 array(
@@ -43,7 +43,7 @@ class Extension extends Twig_Extension
                 )
             ),
 
-            new \Twig_SimpleFunction(
+            new Twig_SimpleFunction(
                 'axstrad_content_heading',
                 array($this, 'axstradContentHeading'),
                 array(
@@ -52,7 +52,7 @@ class Extension extends Twig_Extension
                 )
             ),
 
-            new \Twig_SimpleFunction(
+            new Twig_SimpleFunction(
                 'axstrad_content_copy',
                 array($this, 'axstradContentCopy'),
                 array(
