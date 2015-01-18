@@ -11,6 +11,11 @@ use Twig_SimpleFunction;
  */
 class Extension extends Twig_Extension
 {
+
+    /**
+     * @param Resolver $resolver
+     * @param Renderer $renderer
+     */
     public function __construct(Resolver $resolver, Renderer $renderer)
     {
         $this->resolver = $resolver;

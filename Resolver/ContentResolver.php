@@ -12,7 +12,7 @@ use Axstrad\Bundle\ContentBundle\Repository\ContentRepository;
 class ContentResolver
 {
     /**
-     * @var Axstrad\Bundle\ContentBundle\Model\Content
+     * @var Content
      */
     protected $content = null;
 
@@ -28,10 +28,10 @@ class ContentResolver
 
     /**
      * @param array|ArrayAccess $context
-     * @param null|string|Content $reference
+     * @param null|string|Content $content
      * @return self
-     * @throws InvalidContentReferenceException If $reference is not a valid
-     *         content reference.
+     * @throws InvalidContentReferenceException If $content is a string, but not
+     *         a valid content reference.
      */
     public function resolveFromContext($context, $content = null)
     {

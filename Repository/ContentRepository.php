@@ -8,7 +8,7 @@ interface ContentRepository
 {
     /**
      * @param string $reference
-     * @return PhpOption\Option
+     * @return \PhpOption\Option
      */
     public function findByReference($reference);
 }
