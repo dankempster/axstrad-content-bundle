@@ -35,7 +35,7 @@ class ContentResolver
      */
     public function resolveFromContext($context, $content = null)
     {
-        if ($content === null) {
+        if (null === $content) {
             $content = isset($context['axstrad_content'])
                 ? $context['axstrad_content']
                 : null;
