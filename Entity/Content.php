@@ -12,5 +12,33 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Content extends Article
 {
+    /**
+     * @ORM\Column(name="reference", type="string", length=255, unique=true)
+     * @var string
+     */
+    protected $reference;
 
+    /**
+     * Get reference
+     *
+     * @return string
+     * @see setReference
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * Set reference
+     *
+     * @param  string $reference
+     * @return self
+     * @see getReference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = (string) $reference;
+        return $this;
+    }
 }

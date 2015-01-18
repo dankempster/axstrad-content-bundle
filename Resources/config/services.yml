@@ -1,7 +1,9 @@
 parameters:
-#    axstrad_article.example.class: Axstrad\Bundle\ContentBundle\Example
+    axstrad_content.twig.extension.class: Axstrad\Bundle\ContentBundle\Twig\Extension
 
 services:
-#    axstrad_article.example:
-#        class: %axstrad_article.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    axtsrad_content.twig.extension:
+        class: %axstrad_content.twig.extension.class%
+        tags:
+            - { name: twig.extension }
+

@@ -1,4 +1,4 @@
 
 app:
-    path:     /app/default
-    defaults: { _controller: AxstradContentBundleAppBundle:Default:index }
+    path:     /axstrad_content/by-entity/{contentReference}
+    defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentTwigFunction:byEntity }
