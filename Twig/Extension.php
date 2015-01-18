@@ -11,6 +11,15 @@ use Twig_SimpleFunction;
  */
 class Extension extends Twig_Extension
 {
+    /**
+     * @var Resolver
+     */
+    protected $resolver;
+
+    /**
+     * @var Renderer
+     */
+    protected $renderer;
 
     /**
      * @param Resolver $resolver
