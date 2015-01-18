@@ -26,6 +26,7 @@
     "require-dev": {
         "axstrad/use-case-test-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
+        "doctrine/data-fixtures": ">v1.0.0-ALPHA2, ~1.0.0",
         "liip/functional-test-bundle": "~1",
         "phpunit/phpunit": "~4.1",
         "satooshi/php-coveralls": "dev-master",
