@@ -1,39 +1,46 @@
 language: php
 php:
   - 5.4
-  - 5.5
-  - 5.6
   - hhvm
-
 env:
-  # Test in Symfony LTS and latest stable release
   - SYMFONY_VERSION="2.3.*"
   - SYMFONY_VERSION="2.6.*"
-
+  - LOWEST=1
 before_script:
   - composer self-update
-  - composer require --dev --prefer-dist symfony/symfony:${SYMFONY_VERSION}
-
+  - if [ ! -z $SYMFONY_VERSION ]; then composer require symfony/symfony:${SYMFONY_VERSION} --prefer-dist; fi
+  - if [ ! -z $LOWEST ]; then composer update --prefer-dist --prefer-lowest; fi
 script:
-  # Run the tests
-  - php ./vendor/phpunit/phpunit/phpunit --coverage-clover=build/logs/clover.xml
-
+  # - phpunit -c phpunit.dist.xml
+  - php ./vendor/bin/phpunit --coverage-clover=build/logs/clover.xml
 after_script:
-  # Upload code coverage to Scrutinizr.com
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
-
-  # Upload code coverage to Coveralls.io
-  - php vendor/satooshi/php-coveralls/composer/bin/coveralls -v
-
+  - php ./vendor/bin/coveralls -v
 matrix:
-  # Also Build with PHP latest and Symfony next
+  # Build with PHP 5.5 and Symfony LTS
   include:
+    - php: 5.5
+      env: SYMFONY_VERSION="2.3.*"
     - php: 5.6
       env: SYMFONY_VERSION="2.7.*@dev"
 
-  allow_failures:
+  exclude:
     - php: hhvm
+      env: LOWEST=1
+
+  # Test the latest PHP and Symfony Next
+  allow_failures:
     - env: SYMFONY_VERSION="2.7.*@dev"
+    - php: hhvm
 
   fast_finish: true
+
+notifications:
+  email:
+    - dev@dankempster.co.uk
+
+branches:
+  only:
+    - develop
+    - master
