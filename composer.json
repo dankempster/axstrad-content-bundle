@@ -29,6 +29,7 @@
         "doctrine/data-fixtures": ">v1.0.0-ALPHA2, ~1.0.0",
         "liip/functional-test-bundle": "~1",
         "phpunit/phpunit": "~4.1",
+        "guzzle/guzzle": "~3.0",
         "satooshi/php-coveralls": "dev-master",
         "sensio/framework-extra-bundle": "~2.3 || ~3"
     },
