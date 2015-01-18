@@ -1,0 +1,4 @@
+
+app:
+    path:     /app/default
+    defaults: { _controller: AxstradContentBundleAppBundle:Default:index }
