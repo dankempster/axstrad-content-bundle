@@ -28,6 +28,8 @@ matrix:
   exclude:
     - php: hhvm
       env: LOWEST=1
+    - php: hhvm
+      env: SYMFONY_VERSION="2.6.*"
 
   # Test the latest PHP and Symfony Next
   allow_failures:
