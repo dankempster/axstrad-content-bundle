@@ -37,4 +37,9 @@ class ContentRenderer
             htmlspecialchars($article->getHeading())
         );
     }
+
+    public function renderCopy(Article $article)
+    {
+        return $article->getCopy();
+    }
 }

@@ -37,6 +37,15 @@ class Extension extends Twig_Extension
                     'is_safe' => array('html'),
                 )
             ),
+
+            new \Twig_SimpleFunction(
+                'axstrad_content_copy',
+                array($this, 'axstradContentCopy'),
+                array(
+                    'needs_context' => true,
+                    'is_safe' => array('html'),
+                )
+            ),
         );
     }
 
@@ -63,6 +72,20 @@ class Extension extends Twig_Extension
             ->getContent()
             ->map(function($content) use ($renderer) {
                 return $this->renderer->renderHeading($content);
+            })
+            ->getOrElse(null)
+        ;
+    }
+
+    public function axstradContentCopy($context, $content = null)
+    {
+        $renderer = $this->renderer;
+
+        return $this->resolver
+            ->resolveFromContext($context, $content)
+            ->getContent()
+            ->map(function($content) use ($renderer) {
+                return $this->renderer->renderCopy($content);
             })
             ->getOrElse(null)
         ;

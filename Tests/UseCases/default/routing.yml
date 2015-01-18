@@ -14,3 +14,11 @@ axstrad_content.test.axstrad_content_heading.by_entity:
 axstrad_content.test.axstrad_content_heading.by_reference:
     path:     /axstrad_content_heading/by-reference/{contentReference}/{asArg}
     defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentHeadingTwigFunction:byReference }
+
+axstrad_content.test.axstrad_content_copy.by_entity:
+    path:     /axstrad_content_copy/by-entity/{contentReference}/{asArg}
+    defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentCopyTwigFunction:byEntity }
+
+axstrad_content.test.axstrad_content_copy.by_reference:
+    path:     /axstrad_content_copy/by-reference/{contentReference}/{asArg}
+    defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentCopyTwigFunction:byReference }
