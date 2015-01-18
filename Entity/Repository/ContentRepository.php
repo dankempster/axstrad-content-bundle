@@ -2,7 +2,7 @@
 namespace Axstrad\Bundle\ContentBundle\Entity\Repository;
 
 use Axstrad\Bundle\ContentBundle\Repository\ContentRepository as ContentRepositoryInterface;
-use Doctrine\ORm\EntityRepository;
+use Doctrine\ORM\EntityRepository;
 use PhpOption\Option as PhpOption;
 
 /**
