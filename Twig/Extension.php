@@ -65,8 +65,6 @@ class Extension extends Twig_Extension
 
     public function axstradContent($context, $content = null)
     {
-        $renderer = $this->renderer;
-
         return $this->resolver
             ->resolveFromContext($context, $content)
             ->getContent()
@@ -79,8 +77,6 @@ class Extension extends Twig_Extension
 
     public function axstradContentHeading($context, $content = null)
     {
-        $renderer = $this->renderer;
-
         return $this->resolver
             ->resolveFromContext($context, $content)
             ->getContent()
@@ -93,8 +89,6 @@ class Extension extends Twig_Extension
 
     public function axstradContentCopy($context, $content = null)
     {
-        $renderer = $this->renderer;
-
         return $this->resolver
             ->resolveFromContext($context, $content)
             ->getContent()
