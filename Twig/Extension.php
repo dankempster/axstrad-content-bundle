@@ -33,13 +33,16 @@ class Extension extends Twig_Extension
 
     public function axstradContent($context, $content = null)
     {
-        $content = $this->resolver->resolveFromContext($context, $content);
+        $renderer = $this->renderer;
 
-        if (empty($content)) {
-            return null;
-        }
-
-        return $this->renderer->render($content);
+        return $this->resolver
+            ->resolveFromContext($context, $content)
+            ->getContent()
+            ->map(function($content) use ($renderer) {
+                return $this->renderer->render($content);
+            })
+            ->getOrElse(null)
+        ;
     }
 
     public function getName()

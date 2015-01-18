@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Axstrad\Bundle\ContentBundle\Entity\Content
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Axstrad\Bundle\ContentBundle\Entity\Repository\ContentRepository")
  * @ORM\Table(name="axstrad_content")
  */
 class Content extends Article implements

@@ -1,4 +1,8 @@
 
-app:
-    path:     /axstrad_content/by-entity/{contentReference}
+axstrad_content.test.axstrad_content.by_entity:
+    path:     /axstrad_content/by-entity/{contentReference}/{asArg}
     defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentTwigFunction:byEntity }
+
+axstrad_content.test.axstrad_content.by_reference:
+    path:     /axstrad_content/by-reference/{contentReference}/{asArg}
+    defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentTwigFunction:byReference }

@@ -35,7 +35,11 @@ class DefaultTest extends WebTestCase
     public function urlProvider()
     {
         return array(
-            [ '/axstrad_content/by-entity/my-content' ],
+            [ '/axstrad_content/by-entity/my-content/no-arg' ],
+            [ '/axstrad_content/by-entity/my-content/as-arg' ],
+
+            [ '/axstrad_content/by-reference/my-content/no-arg' ],
+            [ '/axstrad_content/by-reference/my-content/as-arg' ],
         );
     }
 

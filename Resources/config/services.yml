@@ -1,4 +1,8 @@
 parameters:
+    axstrad_content.entity.class: Axstrad\Bundle\ContentBundle\Entity\Content
+
+    axstrad_content.repository.class: Axstrad\Bundle\ContentBundle\Entity\Repository\ContentRepository
+
     axstrad_content.renderer.class: Axstrad\Bundle\ContentBundle\Renderer\ContentRenderer
 
     axstrad_content.resolver.class: Axstrad\Bundle\ContentBundle\Resolver\ContentResolver
@@ -9,8 +13,16 @@ services:
     axstrad_content.renderer:
         class: %axstrad_content.renderer.class%
 
+    axstrad_content.repository:
+        class: %axstrad_content.repository.class%
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - %axstrad_content.entity.class%
+
     axstrad_content.resolver:
         class: %axstrad_content.resolver.class%
+        arguments: [ @axstrad_content.repository ]
 
     axtsrad_content.twig.extension:
         class: %axstrad_content.twig.extension.class%
