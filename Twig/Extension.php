@@ -1,6 +1,8 @@
 <?php
 namespace Axstrad\Bundle\ContentBundle\Twig;
 
+use Axstrad\Bundle\ContentBundle\Resolver\ContentResolver as Resolver;
+use Axstrad\Bundle\ContentBundle\Renderer\ContentRenderer as Renderer;
 use Twig_Extension;
 use Twig_SimpleFunction;
 
@@ -9,6 +11,12 @@ use Twig_SimpleFunction;
  */
 class Extension extends Twig_Extension
 {
+    public function __construct(Resolver $resolver, Renderer $renderer)
+    {
+        $this->resolver = $resolver;
+        $this->renderer = $renderer;
+    }
+
     public function getFunctions()
     {
         return array(
@@ -25,15 +33,13 @@ class Extension extends Twig_Extension
 
     public function axstradContent($context, $content = null)
     {
-        if (!isset($context['axstrad_content'])) {
+        $content = $this->resolver->resolveFromContext($context, $content);
+
+        if (empty($content)) {
             return null;
         }
 
-        return sprintf(
-            '<h1>%s</h1>%s',
-            htmlspecialchars($context['axstrad_content']->getHeading()),
-            $context['axstrad_content']->getCopy()
-        );
+        return $this->renderer->render($content);
     }
 
     public function getName()

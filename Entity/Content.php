@@ -1,6 +1,7 @@
 <?php
 namespace Axstrad\Bundle\ContentBundle\Entity;
 
+use Axstrad\Bundle\ContentBundle\Model\Content as ContentInterface;
 use Axstrad\Component\Content\Entity\Article;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,7 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="axstrad_content")
  */
-class Content extends Article
+class Content extends Article implements
+    ContentInterface
 {
     /**
      * @ORM\Column(name="reference", type="string", length=255, unique=true)

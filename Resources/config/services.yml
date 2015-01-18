@@ -1,9 +1,21 @@
 parameters:
+    axstrad_content.renderer.class: Axstrad\Bundle\ContentBundle\Renderer\ContentRenderer
+
+    axstrad_content.resolver.class: Axstrad\Bundle\ContentBundle\Resolver\ContentResolver
+
     axstrad_content.twig.extension.class: Axstrad\Bundle\ContentBundle\Twig\Extension
 
 services:
+    axstrad_content.renderer:
+        class: %axstrad_content.renderer.class%
+
+    axstrad_content.resolver:
+        class: %axstrad_content.resolver.class%
+
     axtsrad_content.twig.extension:
         class: %axstrad_content.twig.extension.class%
+        arguments:
+            - @axstrad_content.resolver
+            - @axstrad_content.renderer
         tags:
             - { name: twig.extension }
-
