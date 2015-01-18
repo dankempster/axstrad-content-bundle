@@ -41,7 +41,9 @@ class ContentResolver
                 : null;
         }
 
-        if (is_string($content)) {
+        if (is_string($content) &&
+            (null === $this->content || $this->content->getReference() != $content)
+        ) {
             $content = $this->repo->findByReference($content)->getOrThrow(
                 InvalidContentReferenceException::create($content)
             );
