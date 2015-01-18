@@ -10,7 +10,7 @@ use Liip\FunctionalTestBundle\Test\WebTestCase;
  *
  * @IgnoreAnnotation("dataProvider")
  */
-class AxstradContentTwigFunctionTest extends WebTestCase
+class AxstradContentHeadingTwigFunctionTest extends WebTestCase
 {
     use UseCaseTestTrait;
 
@@ -35,11 +35,11 @@ class AxstradContentTwigFunctionTest extends WebTestCase
     public function urlProvider()
     {
         return array(
-            [ '/axstrad_content/by-entity/my-content/no-arg' ],
-            [ '/axstrad_content/by-entity/my-content/as-arg' ],
+            [ '/axstrad_content_heading/by-entity/my-content/no-arg' ],
+            [ '/axstrad_content_heading/by-entity/my-content/as-arg' ],
 
-            [ '/axstrad_content/by-reference/my-content/no-arg' ],
-            [ '/axstrad_content/by-reference/my-content/as-arg' ],
+            [ '/axstrad_content_heading/by-reference/my-content/no-arg' ],
+            [ '/axstrad_content_heading/by-reference/my-content/as-arg' ],
         );
     }
 
@@ -51,17 +51,6 @@ class AxstradContentTwigFunctionTest extends WebTestCase
         $crawler = $this->client->request('GET', $url);
         $this->assertTrue(
             $crawler->filter('h1:contains("My Content")')->count() > 0
-        );
-    }
-
-    /**
-     * @dataProvider urlProvider
-     */
-    public function testResponseContainsContentCopy($url)
-    {
-        $crawler = $this->client->request('GET', $url);
-        $this->assertTrue(
-            $crawler->filter('p:contains("My content\'s copy")')->count() > 0
         );
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace Axstrad\Bundle\ContentBundle\Renderer;
 
-use Axstrad\Bundle\ContentBundle\Model\Content;
+use Axstrad\Component\Content\Article;
 
 /**
  * Axstrad\Bundle\ContentBundle\Renderer\ContentRenderer
@@ -13,7 +13,7 @@ class ContentRenderer
         $return = null;
 
         switch (true) {
-            case $content instanceof Content:
+            case $content instanceof Article:
                 $return = $this->renderContent($content);
                 break;
         }
@@ -21,12 +21,20 @@ class ContentRenderer
         return $return;
     }
 
-    public function renderContent(Content $content)
+    public function renderContent(Article $article)
     {
         return sprintf(
             '<h1>%s</h1>%s',
-            htmlspecialchars($content->getHeading()),
-            $content->getCopy()
+            htmlspecialchars($article->getHeading()),
+            $article->getCopy()
+        );
+    }
+
+    public function renderHeading(Article $article)
+    {
+        return sprintf(
+            '<h1>%s</h1>',
+            htmlspecialchars($article->getHeading())
         );
     }
 }

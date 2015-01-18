@@ -6,3 +6,11 @@ axstrad_content.test.axstrad_content.by_entity:
 axstrad_content.test.axstrad_content.by_reference:
     path:     /axstrad_content/by-reference/{contentReference}/{asArg}
     defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentTwigFunction:byReference }
+
+axstrad_content.test.axstrad_content_heading.by_entity:
+    path:     /axstrad_content_heading/by-entity/{contentReference}/{asArg}
+    defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentHeadingTwigFunction:byEntity }
+
+axstrad_content.test.axstrad_content_heading.by_reference:
+    path:     /axstrad_content_heading/by-reference/{contentReference}/{asArg}
+    defaults: { _controller: AxstradContentBundleAppBundle:AxstradContentHeadingTwigFunction:byReference }
