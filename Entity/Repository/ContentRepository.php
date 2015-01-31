@@ -13,7 +13,7 @@ class ContentRepository extends EntityRepository implements
 {
     /**
      * @param string $reference
-     * @return Axstrad\Bundle\ContentBundle\Model\Content
+     * @return \Axstrad\Bundle\ContentBundle\Entity\Content
      * @uses findOneBy
      */
     public function findByReference($reference)

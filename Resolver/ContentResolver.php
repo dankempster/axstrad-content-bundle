@@ -4,6 +4,7 @@ namespace Axstrad\Bundle\ContentBundle\Resolver;
 use Axstrad\Bundle\ContentBundle\Exception\InvalidContentReferenceException;
 use Axstrad\Bundle\ContentBundle\Model\Content;
 use Axstrad\Bundle\ContentBundle\Repository\ContentRepository;
+use PhpOption\Option;
 
 /**
  * Axstrad\Bundle\ContentBundle\Resolver\ContentResolver
@@ -26,7 +27,7 @@ class ContentResolver
     }
 
     /**
-     * @param array|ArrayAccess $context
+     * @param array|\ArrayAccess $context
      * @param null|string|Content $content
      * @return self
      * @throws InvalidContentReferenceException If $content is a string, but not
@@ -56,10 +57,10 @@ class ContentResolver
     }
 
     /**
-     * @return PhpOption\Option The current Content
+     * @return Option The current Content
      */
     public function getContent()
     {
-        return \PhpOption\Option::fromValue($this->content);
+        return Option::fromValue($this->content);
     }
 }
