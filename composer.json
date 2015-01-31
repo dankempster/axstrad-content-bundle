@@ -19,7 +19,7 @@
         "axstrad/content": ">=0.4.0",
         "doctrine/doctrine-bundle": "~1",
         "doctrine/orm": "~2.3",
-        "symfony/symfony": "~2.3",
+        "symfony/symfony": "~2.3, <2.7",
         "twig/twig": "~1.12"
     },
 
