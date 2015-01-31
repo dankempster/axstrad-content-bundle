@@ -4,3 +4,10 @@ phpunit.xml
 composer.lock
 Tests/UseCases/*/Cache
 Tests/UseCases/*/Logs
+
+bin
+
+.idea/workspace.xml
+.idea/dataSources.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
