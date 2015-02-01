@@ -2,6 +2,7 @@
 namespace Axstrad\Bundle\ContentBundle\Entity;
 
 use Axstrad\Bundle\ContentBundle\Model\Content as ContentInterface;
+use Axstrad\Common\Entity\IdTrait;
 use Axstrad\Component\Content\Entity\Article;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Content extends Article implements
     ContentInterface
 {
+    use IdTrait;
+
     /**
      * @ORM\Column(name="reference", type="string", length=255, unique=true)
      * @var string
