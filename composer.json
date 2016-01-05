@@ -24,14 +24,23 @@
     },
 
     "require-dev": {
-        "axstrad/use-case-test-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/data-fixtures": ">v1.0.0-ALPHA2, ~1.0.0",
-        "liip/functional-test-bundle": "~1@stable",
-        "phpunit/phpunit": "~4.1@stable",
         "guzzle/guzzle": "~3.0",
-        "satooshi/php-coveralls": "dev-master",
-        "sensio/framework-extra-bundle": "~2.3 || ~3"
+        "sensio/framework-extra-bundle": "~2.3 || ~3",
+
+        "liip/functional-test-bundle": "~1@stable",
+        "axstrad/use-case-test-bundle": "dev-master",
+
+        "theseer/phpdox": "0.8.*",
+        "phpunit/phpunit": "~4.1@stable",
+        "phploc/phploc": "*",
+        "phpmd/phpmd": "*",
+        "squizlabs/php_codesniffer": "*",
+        "sebastian/phpcpd": "*",
+        "sebastian/phpdcd": "*",
+
+        "satooshi/php-coveralls": "dev-master"
     },
 
     "autoload": {
