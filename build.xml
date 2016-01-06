@@ -145,8 +145,10 @@
             description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
         <exec executable="${phploc}" taskname="phploc">
             <arg value="--count-tests" />
-            <arg value="--exclude=${basedir}/vendor/*" />
-            <arg value="--exclude=${basedir}/build/*" />
+            <arg value="--exclude">
+            <arg path="${basedir}/vendor" />
+            <arg value="--exclude" />
+            <arg path="${basedir}/build" />
             <arg path="${basedir}" />
         </exec>
 
@@ -159,8 +161,10 @@
             description="Measure project size using PHPLOC and log result in CSV and XML format. Intended for usage within a continuous integration environment.">
         <exec executable="${phploc}" taskname="phploc">
             <arg value="--count-tests" />
-            <arg value="--exclude=${basedir}/vendor" />
-            <arg value="--exclude=${basedir}/build" />
+            <arg value="--exclude">
+            <arg path="${basedir}/vendor" />
+            <arg value="--exclude" />
+            <arg path="${basedir}/build" />
             <arg value="--log-csv" />
             <arg path="${basedir}/build/logs/phploc.csv" />
             <arg value="--log-xml" />
@@ -248,8 +252,10 @@
             unless="phpcpd.done"
             description="Find duplicate code using PHPCPD and print human readable output. Intended for usage on the command line before committing.">
         <exec executable="${phpcpd}" taskname="phpcpd">
-            <arg value="--exclude=${basedir}/vendor" />
-            <arg value="--exclude=${basedir}/build" />
+            <arg value="--exclude">
+            <arg path="${basedir}/vendor" />
+            <arg value="--exclude" />
+            <arg path="${basedir}/build" />
             <arg path="${basedir}" />
         </exec>
 
@@ -263,8 +269,10 @@
         <exec executable="${phpcpd}" taskname="phpcpd">
             <arg value="--log-pmd" />
             <arg path="${basedir}/build/logs/pmd-cpd.xml" />
-            <arg value="--exclude=${basedir}/vendor" />
-            <arg value="--exclude=${basedir}/build" />
+            <arg value="--exclude">
+            <arg path="${basedir}/vendor" />
+            <arg value="--exclude" />
+            <arg path="${basedir}/build" />
             <arg path="${basedir}" />
         </exec>
 
