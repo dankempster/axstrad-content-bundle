@@ -40,7 +40,7 @@
         "sebastian/phpcpd": "*",
         "sebastian/phpdcd": "*",
 
-        "satooshi/php-coveralls": "dev-master"
+        "satooshi/php-coveralls": "~1 || ~2"
     },
 
     "autoload": {
