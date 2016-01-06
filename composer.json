@@ -30,17 +30,7 @@
         "sensio/framework-extra-bundle": "~2.3 || ~3",
 
         "liip/functional-test-bundle": "~1@stable",
-        "axstrad/use-case-test-bundle": "dev-master",
-
-        "theseer/phpdox": "0.8.*",
-        "phpunit/phpunit": "~4.1@stable",
-        "phploc/phploc": "*",
-        "phpmd/phpmd": "*",
-        "squizlabs/php_codesniffer": "*",
-        "sebastian/phpcpd": "*",
-        "sebastian/phpdcd": "*",
-
-        "satooshi/php-coveralls": "~1 || ~2"
+        "axstrad/use-case-test-bundle": "dev-master"
     },
 
     "autoload": {
