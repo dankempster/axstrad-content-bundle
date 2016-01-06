@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Axstrad/ContentBundle" default="full-build">
+    <property environment="myenv"/>
+
     <!-- By default, we assume all tools to be on the $PATH -->
     <property name="pdepend" value="${basedir}/bin/pdepend"/>
     <property name="phpcpd"  value="${basedir}/bin/phpcpd"/>
@@ -34,6 +36,10 @@
             depends="composer,prepare,static-analysis,phpunit,phpdox,-check-failure"
             description="Performs static analysis, runs the tests, and generates project documentation"/>
 
+    <target name="symfony-build"
+            depends="require-symfony,prepare,static-analysis,phpunit,phpdox,-check-failure"
+            description="Performs static analysis, runs the tests, and generates project documentation"/>
+
     <target name="full-build-parallel"
             depends="composer,prepare,static-analysis-parallel,phpunit,phpdox,-check-failure"
             description="Performs static analysis (executing the tools in parallel), runs the tests, and generates project documentation"/>
@@ -60,6 +66,16 @@
             <arg value="memory_limit=-1"/>
             <arg value="/usr/local/bin/composer"/>
             <arg value="update"/>
+        </exec>
+    </target>
+
+    <target name="require-symfony" description="Run composer update">
+        <exec executable="php">
+            <arg value="-d"/>
+            <arg value="memory_limit=-1"/>
+            <arg value="/usr/local/bin/composer"/>
+            <arg value="require"/>
+            <arg value="symfony/symfony:${myenv.SYMFONY_VERSION}"/>
         </exec>
     </target>
     <!-- -->
