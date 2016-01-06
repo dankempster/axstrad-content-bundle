@@ -55,7 +55,10 @@
     </target>
 
     <target name="composer" description="Run composer update">
-        <exec executable="composer">
+        <exec executable="php">
+            <arg value="-d"/>
+            <arg value="memory_limit=-1"/>
+            <arg value="/usr/local/bin/composer"/>
             <arg value="update"/>
         </exec>
     </target>
