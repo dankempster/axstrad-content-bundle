@@ -115,7 +115,7 @@
                 <modified />
             </fileset>
 
-            <fileset dir="${basedir}/tests">
+            <fileset dir="${basedir}/Tests">
                 <include name="**/*.php" />
                 <modified />
             </fileset>
