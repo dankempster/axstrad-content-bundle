@@ -146,9 +146,9 @@
         <exec executable="${phploc}" taskname="phploc">
             <arg value="--count-tests" />
             <arg value="--exclude" />
-            <arg path="${basedir}/vendor" />
+            <arg value="vendor" />
             <arg value="--exclude" />
-            <arg path="${basedir}/build" />
+            <arg value="build" />
             <arg path="${basedir}" />
         </exec>
 
@@ -162,9 +162,9 @@
         <exec executable="${phploc}" taskname="phploc">
             <arg value="--count-tests" />
             <arg value="--exclude" />
-            <arg path="${basedir}/vendor" />
+            <arg value="vendor" />
             <arg value="--exclude" />
-            <arg path="${basedir}/build" />
+            <arg value="build" />
             <arg value="--log-csv" />
             <arg path="${basedir}/build/logs/phploc.csv" />
             <arg value="--log-xml" />
@@ -197,7 +197,8 @@
             <arg path="${basedir}" />
             <arg value="text" />
             <arg path="${basedir}/build/phpmd.xml" />
-            <arg value="--exclude=${basedir}/vendor,${basedir}/build" />
+            <arg value="--exclude" />
+            <arg value="vendor,build" />
         </exec>
 
         <property name="phpmd.done" value="true"/>
@@ -211,9 +212,10 @@
             <arg path="${basedir}" />
             <arg value="xml" />
             <arg path="${basedir}/build/phpmd.xml" />
-            <arg value="--exclude=${basedir}/vendor,${basedir}/build" />
             <arg value="--reportfile" />
             <arg path="${basedir}/build/logs/pmd.xml" />
+            <arg value="--exclude" />
+            <arg value="vendor,build" />
         </exec>
 
         <property name="phpmd.done" value="true"/>
@@ -225,7 +227,7 @@
         <exec executable="${phpcs}" taskname="phpcs">
             <arg value="--standard=PSR2" />
             <arg value="--extensions=php" />
-            <arg value="--ignore=autoload.php,${basedir}/vendor,${basedir}/build" />
+            <arg value="--ignore=autoload.php,vendor/*,build/*,cache/*" />
             <arg path="${basedir}" />
         </exec>
 
@@ -241,7 +243,7 @@
             <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
             <arg value="--standard=PSR2" />
             <arg value="--extensions=php" />
-            <arg value="--ignore=autoload.php,${basedir}/vendor,${basedir}/build" />
+            <arg value="--ignore=autoload.php,vendor/*,build/*,cache/*" />
             <arg path="${basedir}" />
         </exec>
 
@@ -253,9 +255,9 @@
             description="Find duplicate code using PHPCPD and print human readable output. Intended for usage on the command line before committing.">
         <exec executable="${phpcpd}" taskname="phpcpd">
             <arg value="--exclude" />
-            <arg path="${basedir}/vendor" />
+            <arg value="vendor" />
             <arg value="--exclude" />
-            <arg path="${basedir}/build" />
+            <arg value="build" />
             <arg path="${basedir}" />
         </exec>
 
@@ -267,12 +269,12 @@
             depends="prepare"
             description="Find duplicate code using PHPCPD and log result in XML format. Intended for usage within a continuous integration environment.">
         <exec executable="${phpcpd}" taskname="phpcpd">
+            <arg value="--exclude" />
+            <arg value="vendor" />
+            <arg value="--exclude" />
+            <arg value="build" />
             <arg value="--log-pmd" />
             <arg path="${basedir}/build/logs/pmd-cpd.xml" />
-            <arg value="--exclude" />
-            <arg path="${basedir}/vendor" />
-            <arg value="--exclude" />
-            <arg path="${basedir}/build" />
             <arg path="${basedir}" />
         </exec>
 
