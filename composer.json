@@ -30,7 +30,9 @@
         "sensio/framework-extra-bundle": "~2.3 || ~3",
 
         "liip/functional-test-bundle": "~1@stable",
-        "axstrad/use-case-test-bundle": "dev-master"
+        "axstrad/use-case-test-bundle": "dev-master",
+
+        "phpunit/phpunit": "~4.1@stable"
     },
 
     "autoload": {
