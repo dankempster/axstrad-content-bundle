@@ -1,9 +1,15 @@
-build/
+build/api
+build/coverage
+build/logs
+build/pdepend
+build/phpdox
+build/tmp
 vendor/
 phpunit.xml
 composer.lock
 Tests/UseCases/*/Cache
 Tests/UseCases/*/Logs
+cache.properties
 
 bin
 

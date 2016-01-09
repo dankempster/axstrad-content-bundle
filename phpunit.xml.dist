@@ -13,7 +13,7 @@
     </testsuites>
 
     <logging>
-        <!-- <log type="coverage-html"
+        <log type="coverage-html"
              target="build/coverage"
              title="Axstrad/ContentBundle"
              charset="UTF-8"
@@ -21,15 +21,17 @@
              highlight="true"
              lowUpperBound="35"
              highLowerBound="70"
-        /> -->
-        <!-- <log type="coverage-clover" target="build/logs/clover.xml"/> -->
-        <!-- <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/> -->
+        />
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="coverage-crap4j" target="build/logs/crap4j.xml"/>
+        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
     </logging>
 
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./</directory>
             <exclude>
+                <directory>build</directory>
                 <directory>Tests</directory>
                 <directory>vendor</directory>
             </exclude>
